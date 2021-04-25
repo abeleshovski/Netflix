@@ -25,6 +25,11 @@ function Banner() {
         return str?.length > n ? str.substring(0, n-1) + "..." : str;
     }
 
+    const handleClick=()=>{
+        const newWindow = window.open(`https://www.youtube.com/watch?v=q9RAZxNdCk8`, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
+
     return (
         <header className="banner"
         style={{
@@ -40,8 +45,8 @@ function Banner() {
                 </h1>
 
                 <div className="banner_btns">
-                    <button className="banner_btn">Play</button>
-                    <button className="banner_btn">My List</button>
+                    <button className="banner_btn" onClick={()=>handleClick()}>Play</button>
+                    <button className="banner_btn" onClick={()=>handleClick()}>My List</button>
                 </div>
 
                 <h1 className="banner_description">

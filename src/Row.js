@@ -21,7 +21,7 @@ function Row({title,fetchUrl,isLargeRow}) {
 
     
 
-    const handleClick=(movie)=>{
+    const handleClick=()=>{
         const newWindow = window.open(`https://www.youtube.com/watch?v=dQw4w9WgXcQ`, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
     }
@@ -34,7 +34,7 @@ function Row({title,fetchUrl,isLargeRow}) {
                 {movies.map(movie =>(
                     <img
                         key={movie.id}
-                        onClick={()=>handleClick(movie)}
+                        onClick={()=>handleClick()}
                         className={`row_poster ${isLargeRow && "row_posterLarge"}`}
                         src={`${base_url}/${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
                         alt={movie.title}
