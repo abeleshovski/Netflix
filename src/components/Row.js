@@ -2,22 +2,22 @@ import React,{useState,useEffect} from 'react'
 import instance from './axios'
 import "../style/Row.css"
 
-const base_url="https://image.tmdb.org/t/p/original/"
+const base_url="https://image.tmdb.org/t/p/original/";
 
 function Row({title,fetchUrl,isLargeRow}) {
-    const [movies,setMovies] = useState([])
+    const [movies,setMovies] = useState([]);
     
 
     useEffect(()=>{
         async function fetchData(){
             const request = await instance.get(fetchUrl);
             setMovies(request.data.results);
-            return request
+            return request;
         }
         fetchData();
     },[fetchUrl])
 
-    console.log(movies)
+    console.log(movies);
 
     
 
@@ -46,4 +46,4 @@ function Row({title,fetchUrl,isLargeRow}) {
     )
 }
 
-export default Row
+export default Row;

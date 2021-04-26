@@ -4,11 +4,10 @@ import request from './requests'
 import "../style/Banner.css"
 
 function Banner() {
-    const [movie,setMovie] = useState([])
-
+    const [movie,setMovie] = useState([]);
     useEffect(()=>{
         async function fetchData(){
-            const requests= await instance.get(request.fetchTopRated)
+            const requests= await instance.get(request.fetchTopRated);
             setMovie(
                 requests.data.results[
                     Math.floor(Math.random() * requests.data.results.length -1)
@@ -16,18 +15,21 @@ function Banner() {
             );
             return requests;
         }
-        fetchData()
+        fetchData();
     },[])
     
-    console.log(movie)
+    console.log(movie);
 
+    //shortens the description of the text
     function truncate(str,n) {
         return str?.length > n ? str.substring(0, n-1) + "..." : str;
     }
 
+    //random video on youtube, if you know you know :D
+
     const handleClick=()=>{
-        const newWindow = window.open(`https://www.youtube.com/watch?v=q9RAZxNdCk8`, '_blank', 'noopener,noreferrer')
-        if (newWindow) newWindow.opener = null
+        const newWindow = window.open(`https://www.youtube.com/watch?v=q9RAZxNdCk8`, '_blank', 'noopener,noreferrer');
+        if (newWindow) newWindow.opener = null;
     }
 
     return (
