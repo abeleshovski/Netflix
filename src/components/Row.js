@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import instance from './axios'
-import "./Row.css"
+import "../style/Row.css"
 
 const base_url="https://image.tmdb.org/t/p/original/"
 
